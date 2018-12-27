@@ -19,7 +19,7 @@ void Menu::MainMenu()
 	int maxTime;
 	int count;
 	double mutation;
-	double cross;
+	//double cross;
 
 	do 
 	{
@@ -53,14 +53,15 @@ void Menu::MainMenu()
 			std::cout << "Podaj wspolczynnik mutacji: " << std::endl;
 			std::cin >> mutation;
 			gen->setMutationCoefficient(mutation);
-			gen->Mutate(gen->getMutationCoefficient());
+			gen->MutateSwap(gen->getMutationCoefficient());
 			break;
 		case 5:
 			std::cout << "Podaj wspolczynnik krzyzowania: " << std::endl;
-			std::cin >> cross;
-			gen->setMutationCoefficient(cross);
+			//std::cin >> cross;
+			//gen->setMutationCoefficient(cross);
 			break;
 		case 6:
+			MutationType();
 			break;
 		case 7:
 			exit(EXIT_SUCCESS);
@@ -85,12 +86,30 @@ void Menu::FileMenu()
 		gen->ReadAtspFile("ftv47.atsp", 48);
 		break;
 	case 2:
-		//sa->ReadAtspFile("ftv170.atsp", 171);
-		//bb->ReadAtspFile("ftv170.atsp", 171);
+		gen->ReadAtspFile("ftv170.atsp", 171);
 		break;
 	case 3:
-		//sa->ReadAtspFile("rbg403.atsp", 403);
-		//bb->ReadAtspFile("rbg403.atsp", 403);
+		gen->ReadAtspFile("rbg403.atsp", 403);
+		break;
+	default:
+		break;
+	}
+}
+
+void Menu::MutationType()
+{
+	int choice;
+	std::cout << "Wybierz metode mutacji" << std::endl
+		<< "1. Swap mutation (zamiana miejsc dwoch losowych elemntow) " << std::endl
+		<< "2. Scramble mutation (wymieszanie losowego podzbioru danego osobnika z populacji)" << std::endl;
+	std::cin >> choice;
+	switch(choice)
+	{
+	case 1:
+		gen->MutateSwap(gen->getMutationCoefficient());
+		break;
+	case 2:
+		gen->MutateScramble(gen->getMutationCoefficient());
 		break;
 	default:
 		break;

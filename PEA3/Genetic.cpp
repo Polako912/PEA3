@@ -8,6 +8,10 @@ Genetic::Genetic()
 {
 	stopTime = 60;
 	populationCount = 5;
+	bestPath.resize(this->vertex);
+	bestCost = 0;
+	mutationCoefficient = 0.01;
+	crossCoefficient = 0.01;
 }
 
 
@@ -68,23 +72,30 @@ std::priority_queue<Population> Genetic::CreatePopulation(int number)
  	return pq;
 }
 
-std::priority_queue<Population> Genetic::Mutate(int number)
+std::priority_queue<Population> Genetic::MutateSwap(double number)
 {
 	Population pop;
 	std::priority_queue<Population> pq = CreatePopulation(getPopulationCount());
 	Population newPop;
 	std::priority_queue<Population> newQueue;
 
-	int x = rand() % (this->vertex - 2 * number - 3);
+	int x, y;
+
+	do
+	{
+		x = rand() % this->vertex;
+		y = rand() % this->vertex;
+
+	} while (x == y);
 
 	do
 	{
 		pop = pq.top();
 		pq.pop();
 
-		for (int i = 0; i < number; i++)
+		if(static_cast<double>(rand() / RAND_MAX) < number)
 		{
-			std::swap(pop.population.at(x + i), pop.population.at(x - i + number + 2));
+			std::swap(pop.population.at(x), pop.population.at(y));
 		}
 
 		for(int j = 0; j < pop.population.size() - 1; j++)
@@ -113,7 +124,41 @@ std::priority_queue<Population> Genetic::Mutate(int number)
 	return newQueue;
 }
 
-void Genetic::Crossover()
+std::priority_queue<Population> Genetic::MutateScramble(double number)
+{
+	Population pop;
+	std::priority_queue<Population> pq = CreatePopulation(getPopulationCount());
+	Population newPop;
+	std::priority_queue<Population> newQueue;
+
+	do
+	{
+		pop = pq.top();
+		pq.pop();
+
+		if(static_cast<double>(rand() / RAND_MAX) < number)
+		{
+			
+		}
+
+		for (int j = 0; j < pop.population.size() - 1; j++)
+		{
+			pop.populationCost += graphData[pop.population.at(j)][pop.population.at(j + 1)];
+		}
+		pop.populationCost += graphData[pop.population.at(pop.population.size() - 1)][pop.population.at(0)];
+
+		newPop.population = pop.population;
+		newPop.populationCost = pop.populationCost;
+
+		newQueue.push(newPop);
+
+	}
+	while (!pq.empty());
+
+	return newQueue;
+}
+
+void Genetic::DisplayBestSolution()
 {
 
 }
@@ -146,14 +191,4 @@ double Genetic::getMutationCoefficient()
 void Genetic::setMutationCoefficient(double number)
 {
 	mutationCoefficient = number;
-}
-
-double Genetic::getCrossCoefficient()
-{
-	return crossCoefficient;
-}
-
-void Genetic::setCrossCoefficient(double number)
-{
-	crossCoefficient = number;
 }

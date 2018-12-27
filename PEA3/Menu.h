@@ -11,5 +11,6 @@ public:
 	~Menu();
 	void MainMenu();
 	void FileMenu();
+	void MutationType();
 };
 
