@@ -1,5 +1,6 @@
 ﻿  Genetic.cpp
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(33): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(90): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(101): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(105): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(160): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(209): warning C4018: '<': signed/unsigned mismatch
   PEA3.vcxproj -> C:\Users\asus\Documents\Visual Studio 2017\Projects\PEA3\Debug\PEA3.exe

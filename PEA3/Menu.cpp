@@ -47,13 +47,14 @@ void Menu::MainMenu()
 			std::cout << "Podaj wielkosc populacji poczatkowej: " << std::endl;
 			std::cin >> count;
 			gen->setPopulatinCount(count);
-			gen->CreatePopulation(gen->getPopulationCount());
+			//gen->CreatePopulation(gen->getPopulationCount());
 			break;
 		case 4:
 			std::cout << "Podaj wspolczynnik mutacji: " << std::endl;
 			std::cin >> mutation;
 			gen->setMutationCoefficient(mutation);
-			gen->MutateSwap(gen->getMutationCoefficient());
+			//gen->MutateScramble(gen->getMutationCoefficient());
+			//gen->MutateSwap(gen->getMutationCoefficient());
 			break;
 		case 5:
 			std::cout << "Podaj wspolczynnik krzyzowania: " << std::endl;
@@ -62,6 +63,7 @@ void Menu::MainMenu()
 			break;
 		case 6:
 			MutationType();
+			gen->GeneticAlgorithm();
 			break;
 		case 7:
 			exit(EXIT_SUCCESS);
@@ -103,15 +105,5 @@ void Menu::MutationType()
 		<< "1. Swap mutation (zamiana miejsc dwoch losowych elemntow) " << std::endl
 		<< "2. Scramble mutation (wymieszanie losowego podzbioru danego osobnika z populacji)" << std::endl;
 	std::cin >> choice;
-	switch(choice)
-	{
-	case 1:
-		gen->MutateSwap(gen->getMutationCoefficient());
-		break;
-	case 2:
-		gen->MutateScramble(gen->getMutationCoefficient());
-		break;
-	default:
-		break;
-	}
+	gen->setMutationChoice(choice);
 }

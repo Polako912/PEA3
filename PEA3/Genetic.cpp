@@ -12,11 +12,13 @@ Genetic::Genetic()
 	bestCost = 0;
 	mutationCoefficient = 0.01;
 	crossCoefficient = 0.01;
+	mutationChoice = 1;
 }
 
 
 Genetic::~Genetic()
 {
+	bestPath.clear();
 }
 
 std::priority_queue<Population> Genetic::CreatePopulation(int number)
@@ -49,11 +51,13 @@ std::priority_queue<Population> Genetic::CreatePopulation(int number)
 		pathCost = 0;
 	}
 
-	/*do
+	/*std::priority_queue<Population> pq1 = pq;
+
+	do
 	{
 		Population pop1;
-		pop1 = pq.top();
-		pq.pop();
+		pop1 = pq1.top();
+		pq1.pop();
 		for (int i = 0; i < pop1.population.size(); i++)
 		{
 			if (i == pop1.population.size() - 1)
@@ -67,7 +71,7 @@ std::priority_queue<Population> Genetic::CreatePopulation(int number)
 		std::cout << std::endl;
 		std::cout << pop1.populationCost << std::endl;
 
-	} while (!pq.empty());*/
+	} while (!pq1.empty());*/
 
  	return pq;
 }
@@ -109,15 +113,17 @@ std::priority_queue<Population> Genetic::MutateSwap(double number)
 
 		newQueue.push(newPop);
 
-		for (int i = 0; i < pop.population.size(); i++)
-		{
-			if (i == pop.population.size() - 1)
-			{
-				std::cout << pop.population[i];
-			}
-			else
-				std::cout << pop.population[i] << "->";
-		}
+//		for (int i = 0; i < pop.population.size(); i++)
+//		{
+//			if (i == pop.population.size() - 1)
+//			{
+//				std::cout << pop.population[i];
+//			}
+//			else
+//				std::cout << pop.population[i] << "->";
+//		}
+//		std::cout << std::endl;
+//		std::cout << pop.populationCost << std::endl;
 
 	} while (!pq.empty());
 
@@ -131,6 +137,16 @@ std::priority_queue<Population> Genetic::MutateScramble(double number)
 	Population newPop;
 	std::priority_queue<Population> newQueue;
 
+	int firstIndex;
+	int lastIndex;
+
+	do
+	{
+		firstIndex = rand() % static_cast<int>(this->vertex / 2);
+		lastIndex = rand() % static_cast<int>(this->vertex / 2);
+	}
+	while (firstIndex == lastIndex || firstIndex > lastIndex);
+
 	do
 	{
 		pop = pq.top();
@@ -138,7 +154,7 @@ std::priority_queue<Population> Genetic::MutateScramble(double number)
 
 		if(static_cast<double>(rand() / RAND_MAX) < number)
 		{
-			
+			std::random_shuffle(pop.population.begin() + firstIndex, pop.population.end() - lastIndex);
 		}
 
 		for (int j = 0; j < pop.population.size() - 1; j++)
@@ -152,15 +168,56 @@ std::priority_queue<Population> Genetic::MutateScramble(double number)
 
 		newQueue.push(newPop);
 
+//		for (int i = 0; i < pop.population.size(); i++)
+//		{
+//			if (i == pop.population.size() - 1)
+//			{
+//				std::cout << pop.population[i];
+//			}
+//			else
+//				std::cout << pop.population[i] << "->";
+//		}
+//		std::cout << std::endl;
+//		std::cout << pop.populationCost << std::endl;
+
 	}
 	while (!pq.empty());
 
 	return newQueue;
 }
 
-void Genetic::DisplayBestSolution()
+void Genetic::GeneticAlgorithm()
 {
+	Population pop;
+	std::priority_queue<Population> pq;
 
+	if(getMutationChoice() == 1)
+	{
+		pq = MutateSwap(getMutationCoefficient());
+	}
+
+	if(getMutationChoice() == 2)
+	{
+		pq = MutateScramble(getMutationCoefficient());
+	}
+
+	pop = pq.top();
+
+	std::cout << std::endl;
+	std::cout << "Sciezka przejscia: " << std::endl;
+
+	for(int i = 0; i < pop.population.size(); i++)
+	{
+		if (i == pop.population.size() - 1)
+		{
+			std::cout << pop.population[i];
+		}
+		else
+			std::cout << pop.population[i] << "->";
+	}
+
+	std::cout << std::endl;
+	std::cout << "Koszt: " << pop.populationCost << std::endl;
 }
 
 int Genetic::getTime()
@@ -191,4 +248,14 @@ double Genetic::getMutationCoefficient()
 void Genetic::setMutationCoefficient(double number)
 {
 	mutationCoefficient = number;
+}
+
+int Genetic::getMutationChoice()
+{
+	return mutationChoice;
+}
+
+void Genetic::setMutationChoice(int number)
+{
+	mutationChoice = number;
 }

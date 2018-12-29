@@ -22,6 +22,7 @@ private:
 	double crossCoefficient;
 	std::vector<int> bestPath;
 	int bestCost;
+	int mutationChoice;
 
 public:
 	Genetic();
@@ -29,7 +30,7 @@ public:
 	std::priority_queue<Population> CreatePopulation(int number);
 	std::priority_queue<Population> MutateSwap(double number);
 	std::priority_queue<Population> MutateScramble(double number);
-	void DisplayBestSolution();
+	void GeneticAlgorithm();
 	//void Crossover();
 
 	int getTime();
@@ -38,4 +39,6 @@ public:
 	void setPopulatinCount(int number);
 	double getMutationCoefficient();
 	void setMutationCoefficient(double number);
+	int getMutationChoice();
+	void setMutationChoice(int number);
 };
