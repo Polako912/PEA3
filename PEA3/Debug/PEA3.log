@@ -1,6 +1,12 @@
 ﻿  Genetic.cpp
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(39): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(105): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(160): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(209): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(107): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(82): warning C4101: 'end': unreferenced local variable
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(82): warning C4101: 'start': unreferenced local variable
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(165): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\genetic.cpp(216): warning C4018: '<': signed/unsigned mismatch
+  Main.cpp
+c:\users\asus\documents\visual studio 2017\projects\pea3\pea3\main.cpp(7): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Menu.cpp
+  Generating Code...
   PEA3.vcxproj -> C:\Users\asus\Documents\Visual Studio 2017\Projects\PEA3\Debug\PEA3.exe

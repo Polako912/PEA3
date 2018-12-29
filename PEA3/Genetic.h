@@ -41,4 +41,5 @@ public:
 	void setMutationCoefficient(double number);
 	int getMutationChoice();
 	void setMutationChoice(int number);
+	double getStopTime(double a, double b);
 };
