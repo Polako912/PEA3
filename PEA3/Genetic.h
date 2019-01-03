@@ -27,11 +27,11 @@ private:
 public:
 	Genetic();
 	~Genetic();
-	std::priority_queue<Population> CreatePopulation(int number);
+	std::vector<Population> CreatePopulation(int number);
 	std::priority_queue<Population> MutateSwap(double number);
 	std::priority_queue<Population> MutateScramble(double number);
+	std::priority_queue<Population> Crossover(double number);
 	void GeneticAlgorithm();
-	//void Crossover();
 
 	int getTime();
 	void setTime(int number);
@@ -41,5 +41,9 @@ public:
 	void setMutationCoefficient(double number);
 	int getMutationChoice();
 	void setMutationChoice(int number);
+	double getCrossCoefficient();
+	void setCrossCoefficient(double number);
 	double getStopTime(double a, double b);
+	std::vector<int> getPath();
+	int getCost();
 };

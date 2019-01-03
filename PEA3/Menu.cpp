@@ -19,7 +19,7 @@ void Menu::MainMenu()
 	int maxTime;
 	int count;
 	double mutation;
-	//double cross;
+	double cross;
 
 	do 
 	{
@@ -47,7 +47,7 @@ void Menu::MainMenu()
 			std::cout << "Podaj wielkosc populacji poczatkowej: " << std::endl;
 			std::cin >> count;
 			gen->setPopulatinCount(count);
-			//gen->CreatePopulation(gen->getPopulationCount());
+			gen->CreatePopulation(gen->getPopulationCount());
 			break;
 		case 4:
 			std::cout << "Podaj wspolczynnik mutacji: " << std::endl;
@@ -58,8 +58,9 @@ void Menu::MainMenu()
 			break;
 		case 5:
 			std::cout << "Podaj wspolczynnik krzyzowania: " << std::endl;
-			//std::cin >> cross;
-			//gen->setMutationCoefficient(cross);
+			std::cin >> cross;
+			gen->setMutationCoefficient(cross);
+			//gen->Crossover(gen->getCrossCoefficient());
 			break;
 		case 6:
 			MutationType();

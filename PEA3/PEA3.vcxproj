@@ -119,11 +119,13 @@
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="TimeMeasure.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Genetic.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="TimeMeasure.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ftv170.atsp" />
