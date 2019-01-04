@@ -13,4 +13,5 @@ public:
 	void startCounting();
 	void saveToFile(std::vector<double>& czasy, std::string filename);
 	void savePath(std::vector<int>& czasy, std::string filename);
+	void saveToFile(std::vector<std::vector<int>>& czasy, std::string filename);
 };

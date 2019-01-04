@@ -6,11 +6,6 @@ struct Population
 {
 	std::vector<int> population;
 	int populationCost;
-
-	friend bool operator <(const Population& other, const Population& second)
-	{
-		return other.populationCost > second.populationCost;
-	}
 };
 
 class Genetic: public Graph
@@ -27,11 +22,13 @@ private:
 public:
 	Genetic();
 	~Genetic();
+	int CalculateCost(std::vector<int> vector);
 	std::vector<Population> CreatePopulation(int number);
-	std::priority_queue<Population> MutateSwap(double number);
-	std::priority_queue<Population> MutateScramble(double number);
-	std::priority_queue<Population> Crossover(double number);
+	Population MutateSwap(Population individual);
+	Population MutateScramble(Population individual);
+	Population Crossover(Population parent1, Population parent2);
 	void GeneticAlgorithm();
+	void DisplayPopulation();
 
 	int getTime();
 	void setTime(int number);
