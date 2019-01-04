@@ -222,11 +222,14 @@ void Genetic::GeneticAlgorithm()
 
 	bestPath = pop.population;
 	bestCost = pop.populationCost;
+}
 
+void Genetic::DisplayPopulation()
+{
 	std::cout << std::endl;
 	std::cout << "Sciezka przejscia: " << std::endl;
 
-	for(int i = 0; i < bestPath.size(); i++)
+	for (int i = 0; i < bestPath.size(); i++)
 	{
 		if (i == bestPath.size() - 1)
 		{
@@ -238,11 +241,6 @@ void Genetic::GeneticAlgorithm()
 
 	std::cout << std::endl;
 	std::cout << "Koszt: " << bestCost << std::endl;
-}
-
-void Genetic::DisplayPopulation()
-{
-
 }
 
 int Genetic::getTime()

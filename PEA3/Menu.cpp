@@ -36,7 +36,6 @@ void Menu::MainMenu()
 		{
 		case 1:
 			FileMenu();
-			//gen->Display();
 			break;
 		case 2:
 			std::cout << "Podaj kryterium stopu (w sekunach): " << std::endl;
@@ -47,24 +46,21 @@ void Menu::MainMenu()
 			std::cout << "Podaj wielkosc populacji poczatkowej: " << std::endl;
 			std::cin >> count;
 			gen->setPopulatinCount(count);
-			gen->CreatePopulation(gen->getPopulationCount());
 			break;
 		case 4:
 			std::cout << "Podaj wspolczynnik mutacji: " << std::endl;
 			std::cin >> mutation;
 			gen->setMutationCoefficient(mutation);
-			//gen->MutateScramble(gen->getMutationCoefficient());
-			//gen->MutateSwap(gen->getMutationCoefficient());
 			break;
 		case 5:
 			std::cout << "Podaj wspolczynnik krzyzowania: " << std::endl;
 			std::cin >> cross;
 			gen->setMutationCoefficient(cross);
-			//gen->Crossover(gen->getCrossCoefficient());
 			break;
 		case 6:
 			MutationType();
 			gen->GeneticAlgorithm();
+			gen->DisplayPopulation();
 			break;
 		case 7:
 			exit(EXIT_SUCCESS);
