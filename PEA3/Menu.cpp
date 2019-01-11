@@ -23,8 +23,8 @@ void Menu::MainMenu()
 
 	do 
 	{
-		std::cout << "1. Wczytaj z dane z pliku" << std::endl
-			<< "2. Kryteruim stopu" << std::endl
+		std::cout << "1. Wczytaj dane z pliku" << std::endl
+			<< "2. Kryterium stopu" << std::endl
 			<< "3. Ustawienie wilekosci populacji poczatkowej" << std::endl
 			<< "4. Wspolczynnik mutacji" << std::endl
 			<< "5. Wspolczynnik krzyzowania" << std::endl

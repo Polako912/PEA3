@@ -4,7 +4,7 @@
 #include "TimeMeasure.h"
 #include <sstream> 
 
-/*TimeMeasure pomiary;
+TimeMeasure pomiary;
 Genetic *gen = new Genetic();
 std::vector<int> czasyAlgorytm;
 std::vector<std::vector<int>> drogi;
@@ -39,7 +39,7 @@ void test(int popul, int times, double coef, int muation, double cross, int size
 	czasyAlgorytm.clear();
 	drogi.clear();
 	koszty.clear();
-}*/
+}
 
 int main()
 {
